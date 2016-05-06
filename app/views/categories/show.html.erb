@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid" >
+	<div class="row">
+		<%= carousel_for(@images_path) %>
+	</div>
+</div>
+
+<div class="container">
+
+	<div class="row">
+
+		<% @posts.each do |post|  %>
+			<div class="row">
+
+				<h2> Titulo : <%= post.title %></h2>
+				<p>  Conteúdo : <%= post.content  %></p>
+
+			</div>
+		<%end%>
+		<p><% @posts %></p>
+	</div>
+
+
+</div>

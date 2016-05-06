@@ -1,0 +1,67 @@
+<p id="notice">
+    <%=notice %>
+</p>
+<div class="container">
+    <% @categories.each do |category| %>
+        <div class="row">
+            <section id="<%category.name%>">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">
+                                <%= category.name%>
+                            </h2>
+                            <h3 class="section-subheading text-muted">
+                                <%= category.description%>
+                            </h3>
+                        </div>
+                    </div>
+                    <% case category.name %>
+                        <% when 'services' %>
+                            <div class="row text-center">
+
+                            	<% @services.each do |service| %>
+                                    <div class="col-md-4 ">
+                                        <span class="fa-stack fa-4x">
+                                            <i class="fa fa-circle fa-stack-2x text-primary">
+                                            </i>
+                                            <i class="glyphicon glyphicon-<%= service.style %>">
+                                            </i>
+                                        </span>
+                                        <h4 class="service-heading">
+                                            <%= service.title %>
+                                        </h4>
+                                        <p class="text-muted">
+                                            <%= service.content %>
+                                        </p>
+                            		</div>
+                        		<%end%><!--! end of services each -->
+
+                            </div> <!--! end of services div -->
+
+                        <% when 'index' %>
+					    	<div class="row">
+					    	   	<% @indexes.each do |index| %>
+					        		<div class="col-md-4 ">
+						            	<div class="panel panel-default" >
+						                	<div class="panel-heading">
+						                		<%= index.title  %>
+						                	</div>
+							                <div class="panel-body " >
+							                	<p> <%= index.content %> </p>
+							                </div>
+						                </div>
+					            
+                					</div> <!--! end of indexes div row -->
+                				<%end%><!--! end of index each -->
+
+
+
+
+
+                				
+                <%end%> <!--end of category.name case -->
+            </section>
+        </div>
+    <%end%><!--! end of category each -->
+</div>
