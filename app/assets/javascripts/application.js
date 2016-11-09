@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function () {
+  $('#carousel').find('.item').first().addClass('active');
+});
+
+$('.carousel').carousel({
+  interval: 10 
+});

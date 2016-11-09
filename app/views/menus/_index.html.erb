@@ -3,10 +3,9 @@
 <div id="hmenu">
 <ul>
   <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-  <% Menu.all.each do |menu| %>
-  	   	<%= link_to "#{menu.name}", category_path(menu.category_id), class: 'navbar-brand' %>
+  <% Category.all.each do |menu| %>
+  	   	<%= link_to "#{menu.description}",  welcome_index_path(@welcome, anchor: menu.name), class: 'navbar-brand' %>
   <% end %>
-  <%= link_to 'Contato',  new_contact_path , class: 'navbar-brand' %>
   
   <% if user_signed_in? %>
     <%= link_to('Logout', destroy_user_session_path, :method=>'delete', class: 'navbar-brand') %>        

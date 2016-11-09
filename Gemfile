@@ -10,8 +10,10 @@ gem 'rails_admin'
 
 #estilo nos formularios
 gem 'bootstrap_form'
-#bootstrap
+#estilos
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

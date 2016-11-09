@@ -1,31 +1,61 @@
 <p id="notice">
     <%=notice %>
 </p>
+<!-- Header -->
+<header >
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="row">
+              <div class="col-xs-offset-3 col-xs-6">
+                  <div class="carousel-inner">
+                    <% @headers.each do |header| %>
+                      <div class="item">
+                          <div class="carousel-content">
+                              <div>
+                                  <i class="fa <%= header.style %> "></i>
+                                  <h2><%= header.content %></h2>
+                              </div>
+                          </div>
+                      </div>
+                    <%end%>
+                    </div>
+                </div>
+          </div>
+        <!-- Controls -->  <a class="left carousel-control" href="#text-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+     <a class="right carousel-control" href="#text-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a> 
+
+    </div>
+    </header>
+
 <div class="container">
     <% @categories.each do |category| %>
         <div class="row">
-            <section id="<%category.name%>">
-                <div class="container">
+            <section id="<%= category.name %>" >
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <h2 class="section-heading">
-                                <%= category.name%>
+                                 <%= category.description%>
                             </h2>
                             <h3 class="section-subheading text-muted">
-                                <%= category.description%>
+                               
                             </h3>
                         </div>
                     </div>
                     <% case category.name %>
                         <% when 'services' %>
-                            <div class="row text-center">
+                            <div class="row text-center success">
 
                             	<% @services.each do |service| %>
                                     <div class="col-md-4 ">
                                         <span class="fa-stack fa-4x">
-                                            <i class="fa fa-circle fa-stack-2x text-primary">
+                                            <i class="fa fa-circle fa-stack-2x text-muted">
                                             </i>
-                                            <i class="glyphicon glyphicon-<%= service.style %>">
+                                            <i class="fa <%= service.style %> fa-stack-1x fa-inverse">
                                             </i>
                                         </span>
                                         <h4 class="service-heading">
@@ -53,8 +83,12 @@
 						                </div>
 					            
                 					</div> <!--! end of indexes div row -->
-                				<%end%><!--! end of index each -->
+                                <%end%><!--! end of index each -->
 
+                        <%when 'contact' %>
+                            <div class="row">
+                            <%= render 'contacts/form' %>
+                        </div> <!--! end of contatos div row -->
 
 
 

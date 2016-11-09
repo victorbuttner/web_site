@@ -10,6 +10,7 @@ class MenusController < ApplicationController
   # GET /menus/1
   # GET /menus/1.json
   def show
+      @categories = Category.all
   end
 
   # GET /menus/new
